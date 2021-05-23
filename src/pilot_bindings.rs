@@ -237,7 +237,7 @@ fn generate_bindings(s: &DataStruct) -> Result<Bindings> {
                     let (plc_mem, check_trait) = if let Ok(syn::parse::Nothing) =
                         parse2(attribute.tokens.clone())
                     {
-                        let bind_type = quote!(crate::bindings::plc_dev_t);
+                        let bind_type = quote!(crate::pilot::bindings::plc_dev_t);
                         let check_trait = quote_spanned! {field.ty.span()=>
                             {struct _X where #field_ty: pilot_sys::var::PilotBindings<BindType = #bind_type>; }
                         };
